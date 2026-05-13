@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Viejitos</title>
+</head>
+<body>
+    <!-- Creamos una Sección donde se Reporta lo Solicitado  -->
+        <section id="body">
+
+            <!-- Titulo de donde Se Reportan lo Solicitado -->
+                <h2>Gestion de Fundación Viejitos (Plain)</h2>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos una Tabla de Reporte para Mostrar lo Solicitado -->
+                <table border="1" style="width: 100%; text-align: center;">
+                    <thead>
+                        <tr>
+                            <th>Donante</th>
+                            <th>Dólares Aportados</th>
+                            <th>Bolívares Aportados</th>
+                            <th>Total en Dólares</th>
+                            <th>Total en Bolívares</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body_tblReporte"></tbody> <!-- Aquí se llenará dinámicamente con JavaScript -->
+                </table>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un div por cada Salida Esperada -->
+                <div>
+                    <strong>Total Final en Dolares:</strong> $.<span id="body_lblTotalDolares">0</span>
+                </div>
+
+                <div>
+                    <strong>Total Final en Bolívares:</strong> Bs.<span id="body_lblTotalBolivares">0</span>
+                </div>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un Boton que Procesa a Cada Donante -->
+                <button id="body_btNewDonante"><strong>Procesar Donante</strong></button>
+
+        </section>
+
+    <!-- Creamos una Seccion Para Solicitar Los Datos -->
+        <section id="donante" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 350px;">
+
+        <!-- Titulo de donde se Procesan los Datos -->
+            <h2 id="donante_lblDonante">Procesar Donante</h2>
+
+        <!-- Input del Nombre del Donante -->
+            <div>
+                <label> Nombre del Donante:
+                    <input type="text" id="donante_inNombre" placeholder="Ej: Mario">
+                </label>
+            </div>
+
+        <!-- Input de Dolares Aportados del Donante -->
+            <div>
+                <label> Dolares del Donante:
+                    <input type="text" id="donante_inDolares" placeholder="Ej: 10">
+                </label>
+            </div>
+
+        <!-- Input de Bolivares Aportados del Donante -->
+            <div>
+                <label> Bolivares del Donante:
+                    <input type="text" id="donante_inBolivares" placeholder="Ej: 80">
+                </label>
+            </div>
+
+        <!-- Creamos los Botones de Aceptar y Cancelar -->
+            <button type="button" id="Donante_btCancelar"><Strong>Cancelar</Strong></button>
+            <button type="button" id="Donante_btAceptar"><strong>Aceptar</strong></button>
+
+        </section>
+
+    <!-- Importamos Los Archivos Js -->
+        <script type="module">
+
+        // Importamos los Controladores
+            import Cl_cFundacion from "./dist/controllers/Cl_cFundacion.js";
+            import Cl_cDonante from "./dist/controllers/Cl_cDonante.js";
+
+        // Importamos las Vistas Plain
+            import Cl_vFundacionPlain from "./dist/views/Cl_vFundacionPlain.js";
+            import Cl_vDonantePlain from "./dist/views/Cl_vDonantePlain.js";
+
+        // Instanciamos Las Vistas
+            const vistaFundacion = new Cl_vFundacionPlain();
+            const vistaDonante = new Cl_vDonantePlain();
+
+        // Inyectamos Las Vistas a los Controladores
+            const controladorDonante = new Cl_cDonante(vistaDonante);
+                new Cl_cFundacion(vistaFundacion, controladorDonante);
+        
+        </script>
+</body>
+</html>
