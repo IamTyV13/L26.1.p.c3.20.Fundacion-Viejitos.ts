@@ -10,8 +10,6 @@ const html = String.raw;
 */
 
 export default class Cl_vFundacionPlain implements I_vFundacion {
-    private lblAporteTotalDolares: HTMLElement;
-    private lblAporteTotalBolivares: HTMLElement;
     private lblTotalDolares: HTMLElement;
     private lblTotalBolivares: HTMLElement;
     private lblMejorDonador: HTMLElement;
@@ -20,8 +18,6 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
     private vista: HTMLElement | null;
 
     constructor() {
-        this.lblAporteTotalDolares = document.getElementById("body_lblAporteTotalDolares") as HTMLElement;
-        this.lblAporteTotalBolivares = document.getElementById("body_lblAporteTotalBolivares") as HTMLElement;
         this.lblTotalDolares = document.getElementById("body_lblTotalDolares") as HTMLElement;
         this.lblTotalBolivares = document.getElementById("body_lblTotalBolivares") as HTMLElement;
         this.lblMejorDonador = document.getElementById("body_lblMejorDonador") as HTMLElement;
@@ -36,8 +32,8 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
     mostrarDonantes({
             
         donantes,
-        aporteTotalDolares, // Poner este metodo a la tabla
-        aporteTotalBolivares, // ""
+        /* aporteTotalDolares, // Poner este metodo a la tabla
+        aporteTotalBolivares, // "" */
         totalDolares,
         totalBolivares,
         mejorDonador,
@@ -45,8 +41,8 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
     } : {
 
         donantes: Cl_mDonante[];
-        aporteTotalDolares: number;
-        aporteTotalBolivares: number;
+        /* aporteTotalDolares: number;
+        aporteTotalBolivares: number; */
         totalDolares: number;
         totalBolivares: number;
         mejorDonador: string;
@@ -60,8 +56,10 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
 
                 tr.innerHTML = html`
                     <td>${donante.nombre}</td>
-                    <td>${donante.dolares}</td>
-                    <td>${donante.bolivares}</td>
+                    <td> $. ${donante.dolares}</td>
+                    <td> Bs. ${donante.bolivares}</td>
+                    <td> $. ${donante.aporteTotalDolares().toFixed(2)}</td>
+                    <td> Bs. ${donante.aporteTotalBolivares().toFixed(2)}</td>
                 `;
 
             this.tbDonantes.appendChild(tr);
