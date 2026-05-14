@@ -5,8 +5,8 @@ import Cl_mDonante from "../models/Cl_mDonante.js";
 
 const html = String.raw; 
 /* 
-   String.ra2: Sirve para tomar el texto exactamente como lo escribes 
-(sin interpretar caracteres especiales como \n, \t, etc.) 
+   String.raw: Sirve para tomar el texto exactamente como lo escribes 
+    (sin interpretar caracteres especiales como \n, \t, etc.) 
 */
 
 export default class Cl_vFundacionPlain implements I_vFundacion {
@@ -31,18 +31,14 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
 
     mostrarDonantes({
             
-        donantes,
-        /* aporteTotalDolares, // Poner este metodo a la tabla
-        aporteTotalBolivares, // "" */
-        totalDolares,
-        totalBolivares,
-        mejorDonador,
+        donantes, // Array
+        totalDolares, // Suma de Dinero en Dolares
+        totalBolivares, // Suma de Dinero en Bolivares
+        mejorDonador, // Nombre del Mejor Donador "with Mayor"
 
     } : {
 
         donantes: Cl_mDonante[];
-        /* aporteTotalDolares: number;
-        aporteTotalBolivares: number; */
         totalDolares: number;
         totalBolivares: number;
         mejorDonador: string;

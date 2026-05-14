@@ -15,7 +15,12 @@ export default class Cl_mDonante {
     }   
 
     set nombre(n: string) {
-        this._nombre = n;
+
+        // Validar que el nombre sea una cadena de texto
+            if(typeof n !== "string")
+                {   throw new Error("El nombre debe ser una cadena de texto"); }
+
+                    this._nombre = n;
     }
 
     get nombre(): string {
@@ -23,7 +28,12 @@ export default class Cl_mDonante {
     }
 
     set dolares(d: number) {
-        this._dolares = d;
+
+        // Validamos Los dólares para que no sea un Numero Negativo
+            if (d < 0) 
+                {throw new Error("El monto en dólares no puede ser negativo");    }
+
+                    this._dolares = +d;
     }
 
     get dolares(): number {
@@ -31,7 +41,12 @@ export default class Cl_mDonante {
     }
 
     set bolivares(b: number) {
-        this._bolivares = b;
+
+        // Validamos Los Bolivares para que no sea un Numero Negativo
+            if (b < 0) 
+                {throw new Error("El monto en bolívares no puede ser negativo");    }
+
+                    this._bolivares = +b;
     }
 
     get bolivares(): number {
@@ -39,13 +54,17 @@ export default class Cl_mDonante {
     }
 
     aporteTotalDolares(): number {
-        const tasaCambio = 40; // Bs.40 por dólar
-        return this.dolares + (this.bolivares / tasaCambio);
+        // Declaramos la tasa de cambio para convertir los bolívares a dólares
+            const tasaCambio = 40; // Bs.40 por dólar
+
+            return this.dolares + (this.bolivares / tasaCambio);
     }
 
     aporteTotalBolivares(): number {
-        const tasaCambio = 40; // Bs.40 por dólar
-        return this.bolivares + (this.dolares * tasaCambio);
+        // Declaramos la tasa de cambio para convertir los dólares a bolívares
+            const tasaCambio = 40; // Bs.40 por dólar
+
+            return this.bolivares + (this.dolares * tasaCambio);
     }
     
 }
