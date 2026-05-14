@@ -8,9 +8,7 @@ export interface I_vFundacion {
         onNewDonante(callback: () => void): void;
         mostrarDonantes({
 
-            donantes, // Array
-            /* aporteTotalDolares, // Suma de Dinero en Dolares
-            aporteTotalBolivares, // Suma de Dinero en Bolivares */
+            donantes, // Arreglo
             totalDolares, // Acumulador de la Suma de Dolares
             totalBolivares, // Acumulador de la Suma de Bolivares
             mejorDonador, // Nombre del Mejor Donador "with Mayor"
@@ -18,8 +16,6 @@ export interface I_vFundacion {
         } : {
 
             donantes: Cl_mDonante[];
-            /* aporteTotalDolares: number;
-            aporteTotalBolivares: number; */
             totalDolares: number;
             totalBolivares: number;
             mejorDonador: string;

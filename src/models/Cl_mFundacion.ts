@@ -47,5 +47,9 @@ export default class Cl_mFundacion {
             return mejorDonante; 
     }
     
+    /* 
+        Nota: "El arreglo donantes es el 'procesar' porque ahí se 
+        guardan los datos y los métodos del modelo lo recorren para hacer los cálculos." 
+    */
 
 }

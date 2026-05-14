@@ -31,7 +31,7 @@ export default class Cl_vFundacionPlain implements I_vFundacion {
 
     mostrarDonantes({
             
-        donantes, // Array
+        donantes, // Arreglo 
         totalDolares, // Suma de Dinero en Dolares
         totalBolivares, // Suma de Dinero en Bolivares
         mejorDonador, // Nombre del Mejor Donador "with Mayor"
